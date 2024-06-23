@@ -53,7 +53,7 @@
     <!-- Control buttons -->
     <div class="mt-2 mx-6 mr-6 mb-6 flex justify-center">
       <!-- Previous -->
-      <button class="previous">
+      <button @click="episodeStore.playPreviousEpisode" class="previous">
         <svg
           class="w-6 h-6 text-white"
           aria-hidden="true"
@@ -68,11 +68,11 @@
       </button>
       <!-- Play/Pause -->
       <button
-        @click="togglePlayPause"
+        @click="episodeStore.togglePlayPause"
         class="play bg-white rounded-full size-16 mx-8 mr-8"
       >
         <svg
-          v-if="isPlaying"
+          v-if="episodeStore.episodeIsPlaying"
           class="pause-icon w-7 h-7 mx-auto text-gray-800"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -95,7 +95,7 @@
         </svg>
       </button>
       <!-- Next -->
-      <button class="next">
+      <button @click="episodeStore.playNextEpisode" class="next">
         <svg
           class="w-6 h-6 rotate-180 text-white"
           aria-hidden="true"
@@ -113,15 +113,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useEpisodeStore } from "../stores/episodeStore.js";
 
 const episodeStore = useEpisodeStore();
-const isPlaying = computed(() => episodeStore.isPlaying);
-
-const togglePlayPause = () => {
-  episodeStore.togglePlayPause();
-};
 
 // Heart controls
 const isFilled = ref(false);

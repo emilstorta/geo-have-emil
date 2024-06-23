@@ -44,12 +44,13 @@ export const useEpisodeStore = defineStore("episodeStore", {
       this.pauseEpisode(); // Pause any currently playing episode
       this.currentPlayingEpisode = episode;
 
+      // Create a new Audio element or update the source if it already exists
       if (!this.audioElement) {
         this.audioElement = new Audio(episode.audio);
       } else {
         this.audioElement.src = episode.audio;
       }
-
+      // Play the audio and handle any errors
       this.audioElement
         .play()
         .then(() => {
@@ -59,12 +60,14 @@ export const useEpisodeStore = defineStore("episodeStore", {
           console.error("Error playing audio:", err);
         });
     },
+
     pauseEpisode() {
       if (this.audioElement) {
         this.audioElement.pause();
         this.isPlaying = false;
       }
     },
+
     togglePlayPause() {
       if (this.isPlaying) {
         this.pauseEpisode();
@@ -72,6 +75,7 @@ export const useEpisodeStore = defineStore("episodeStore", {
         this.resumeEpisode();
       }
     },
+
     resumeEpisode() {
       if (this.audioElement) {
         this.audioElement
@@ -84,14 +88,36 @@ export const useEpisodeStore = defineStore("episodeStore", {
           });
       }
     },
-    stopEpisode() {
-      if (this.audioElement) {
-        this.audioElement.pause();
-        this.audioElement.currentTime = 0;
-        this.audioElement = null;
-        this.currentPlayingEpisode = null;
-        this.isPlaying = false;
+
+    playPreviousEpisode() {
+      if (!this.currentPlayingEpisode || !this.episodes.length) {
+        return;
+      }
+
+      const currentIndex = this.episodes.findIndex(
+        (episode) => episode.id === this.currentPlayingEpisode.id
+      );
+
+      if (currentIndex > 0) {
+        this.playEpisode(this.episodes[currentIndex - 1]);
       }
     },
+
+    playNextEpisode() {
+      if (!this.currentPlayingEpisode || !this.episodes.length) {
+        return;
+      }
+
+      const currentIndex = this.episodes.findIndex(
+        (episode) => episode.id === this.currentPlayingEpisode.id
+      );
+
+      if (currentIndex < this.episodes.length - 1) {
+        this.playEpisode(this.episodes[currentIndex + 1]);
+      }
+    },
+  },
+  getters: {
+    episodeIsPlaying: (state) => state.isPlaying,
   },
 });
