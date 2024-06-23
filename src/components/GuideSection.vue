@@ -1,16 +1,26 @@
 <template>
   <div class="relative z-10 -mt-[12rem] md:-mt-[14rem]">
     <!-- Heading aligned with the start of the cards -->
-    <h2 class="text-xl font-semibold my-4 pl-4">{{ $t('guideTitle') }}</h2>
+    <h2 class="text-xl font-semibold my-4 pl-4">{{ $t("guideTitle") }}</h2>
     <section class="px-4">
-      <swiper :slides-per-view="'auto'" :space-between="10" :pagination="{ clickable: true }" class="mySwiper">
+      <swiper
+        :slides-per-view="'auto'"
+        :space-between="10"
+        :pagination="{ clickable: true }"
+        class="mySwiper"
+      >
         <!-- Swiper slide for Guide card 1 -->
-        <swiper-slide style="width: 135px;">
-          <div class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative" style="height: 210px;">
+        <swiper-slide style="width: 135px">
+          <div
+            class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative"
+            style="height: 210px"
+          >
             <div class="circle circle1 bg-red-200"></div>
             <div class="circle circle2 bg-red-200"></div>
             <div class="circle circle3 bg-red-200"></div>
-            <span class="text-lg font-semibold text-center">{{ $t('guides.guide1') }}</span>
+            <span class="text-lg font-semibold text-center">{{
+              $t("guides.guide1")
+            }}</span>
             <div class="arrow-container">
               <div class="arrow-shaft bg-red-200"></div>
               <div class="arrow-head arrow-red"></div>
@@ -18,12 +28,17 @@
           </div>
         </swiper-slide>
         <!-- Swiper slide for Guide card 2 -->
-        <swiper-slide style="width: 135px;">
-          <div class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative" style="height: 210px;">
+        <swiper-slide style="width: 135px">
+          <div
+            class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative"
+            style="height: 210px"
+          >
             <div class="circle circle1 bg-yellow-200"></div>
             <div class="circle circle2 bg-yellow-200"></div>
             <div class="circle circle3 bg-yellow-200"></div>
-            <span class="text-lg font-semibold text-center">{{ $t('guides.guide2') }}</span>
+            <span class="text-lg font-semibold text-center">{{
+              $t("guides.guide2")
+            }}</span>
             <div class="arrow-container">
               <div class="arrow-shaft bg-yellow-200"></div>
               <div class="arrow-head arrow-yellow"></div>
@@ -31,12 +46,17 @@
           </div>
         </swiper-slide>
         <!-- Swiper slide for Guide card 3 -->
-        <swiper-slide style="width: 135px;">
-          <div class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative" style="height: 210px;">
+        <swiper-slide style="width: 135px">
+          <div
+            class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative"
+            style="height: 210px"
+          >
             <div class="circle circle1 bg-orange-200"></div>
             <div class="circle circle2 bg-orange-200"></div>
             <div class="circle circle3 bg-orange-200"></div>
-            <span class="text-lg font-semibold text-center">{{ $t('guides.guide3') }}</span>
+            <span class="text-lg font-semibold text-center">{{
+              $t("guides.guide3")
+            }}</span>
             <div class="arrow-container">
               <div class="arrow-shaft bg-orange-200"></div>
               <div class="arrow-head arrow-orange"></div>
@@ -44,12 +64,17 @@
           </div>
         </swiper-slide>
         <!-- Swiper slide for Guide card 4 -->
-        <swiper-slide style="width: 135px;">
-          <div class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative" style="height: 210px;">
+        <swiper-slide style="width: 135px">
+          <div
+            class="guide-card flex flex-col items-center space-y-3 bg-white rounded-lg p-3 shadow-lg relative"
+            style="height: 210px"
+          >
             <div class="circle circle1 bg-blue-200"></div>
             <div class="circle circle2 bg-blue-200"></div>
             <div class="circle circle3 bg-blue-200"></div>
-            <span class="text-xl font-extrabold text-center">{{ $t('guides.guide4') }}</span>
+            <span class="text-xl font-extrabold text-center">{{
+              $t("guides.guide4")
+            }}</span>
           </div>
         </swiper-slide>
       </swiper>
@@ -58,9 +83,9 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
 </script>
 
 <style scoped>
@@ -102,21 +127,21 @@ import 'swiper/css/pagination';
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem; 
+  margin-top: 2rem;
 }
 
 .arrow-shaft {
-  width: 0.4rem; 
-  height: 2rem; 
+  width: 0.4rem;
+  height: 2rem;
 }
 
 .arrow-head {
   width: 0;
   height: 0;
-  border-left: 0.6rem solid transparent; 
-  border-right: 0.6rem solid transparent; 
-  border-top: 0.8rem solid; 
-  margin-top: -0.2rem; 
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
+  border-top: 0.8rem solid;
+  margin-top: -0.2rem;
 }
 
 .arrow-red {
