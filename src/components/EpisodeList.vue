@@ -101,7 +101,8 @@
 
 <script setup>
 import { useEpisodeStore } from "../stores/episodeStore.js";
-import { ref, toRefs, onMounted, reactive } from "vue";
+import { storeToRefs } from "pinia";
+import { ref, onMounted, reactive } from "vue";
 import { useI18n } from "vue-i18n";
 import AudioPlayer from "./AudioPlayer.vue";
 //import { collection, getDocs, query, orderBy } from "firebase/firestore";
@@ -131,7 +132,7 @@ const idToKeyMap = {
 
 // Get episodes from Pinia store
 const episodeStore = useEpisodeStore();
-const { episodes, isLoading, error } = toRefs(episodeStore);
+const { episodes, isLoading, error } = storeToRefs(episodeStore);
 
 // Fetch episodes on component load
 onMounted(() => {
